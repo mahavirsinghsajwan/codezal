@@ -69,9 +69,12 @@
 </script>
 
 <style>
-@font-face{ font-family:"Gotham Rounded"; src:url("/wp-content/themes/hello-elementor-child/codezal/fonts/GothamRounded-Book.woff2") format("woff2"); font-weight:400; font-display:swap; }
-@font-face{ font-family:"gotham_roundedmedium"; src:url("/wp-content/themes/hello-elementor-child/codezal/fonts/GothamRounded-Medium.woff2") format("woff2"); font-weight:500; font-display:swap; }
-@font-face{ font-family:"gotham_roundedbold"; src:url("/wp-content/themes/hello-elementor-child/codezal/fonts/GothamRounded-Bold.woff2") format("woff2"); font-weight:700 800; font-display:swap; }
+
+
+
+  @font-face { font-family:'Gotham Rounded'; src:url('assets/gotham-book.woff2') format('woff2'); font-weight:normal; font-style:normal; font-display:swap; }
+  @font-face { font-family:'gotham_roundedbold'; src:url('assets/gotham-bold.woff2') format('woff2'); font-weight:normal; font-style:normal; }
+  @font-face { font-family:'gotham_roundedmedium'; src:url('assets/gotham-medium.woff2') format('woff2'); font-weight:normal; font-style:normal; }
 
 :root{
   --black:#000000; --ink-a:#050010; --ink-b:#3C2C64;
@@ -194,7 +197,7 @@ header.site-header{position:sticky; top:0; z-index:60; background:rgba(0,0,0,.9)
    MOMENTUM BAND. Divided horizontal stat strip, ported from
    the fuller Qatar page, trimmed to four numbers.
 ============================================================ */
-.momentum-card{max-width:860px; margin:76px auto 0; padding:6px; border-radius:var(--r-lg); border:1px solid var(--hair-dark); background:rgb(6 6 7 / 72%); position:relative; z-index:2;}
+.momentum-card{max-width:860px; margin:76px auto 0; padding:6px; border-radius:var(--r-lg); border:1px solid var(--hair-dark); background:var(--glass); position:relative; z-index:2;}
 .momentum-band{display:flex;}
 .momentum-item{flex:1; text-align:center; padding:34px 16px; border-right:1px solid var(--hair-dark);}
 .momentum-item:last-child{border-right:none;}
@@ -273,7 +276,7 @@ footer.site-footer p{color:rgba(255,255,255,.55); font-size:13.5px;}
 <!-- ================= HERO ================= -->
 <section class="hero on-dark" aria-label="Hero">
   <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="assets/hero-bg-video-qatar.mp4" type="video/mp4">
+    <source src="hero-bg-video-qatar.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="wrap hero-inner">
