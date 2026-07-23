@@ -74,21 +74,29 @@
 
 *{box-sizing:border-box;}
 
-@font-face { font-family:'Gotham Rounded'; src:url('assets/gotham-book.woff2') format('woff2'); font-weight:normal; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Gotham Rounded'; src:url('assets/gotham-book.woff2') format('woff2'); font-weight:normal; font-style:normal; font-display:swap; }
   @font-face { font-family:'gotham_roundedbold'; src:url('assets/gotham-bold.woff2') format('woff2'); font-weight:normal; font-style:normal; }
   @font-face { font-family:'gotham_roundedmedium'; src:url('assets/gotham-medium.woff2') format('woff2'); font-weight:normal; font-style:normal; }
 
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth; font-family:'Gotham Rounded';}
-body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+
+  :root{
+ 
+  --font:"Gotham Rounded", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-med:"gotham_roundedmedium", var(--font);
+  --font-bold:"gotham_roundedbold", var(--font);
+}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Gotham Rounded';font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img,svg{display:block;max-width:100%;}
 a{color:inherit;text-decoration:none;}
-h1,h2,h3,h4{font-weight:700;line-height:1.14;margin:0;text-wrap:balance;color:var(--ink);letter-spacing:-0.01em; font-family:'gotham_roundedbold';}
+h1,h2,h3,h4{font-family:'gotham_roundedbold';font-weight:700;line-height:1.14;margin:0;text-wrap:balance;color:var(--ink);letter-spacing:-0.01em;}
 p{margin:0;}
-.ar{direction:rtl;}
+.ar{font-family:'Gotham Rounded'; direction:rtl;}
 .wrap{max-width:1200px;margin:0 auto;padding-inline:24px;}
 .section{padding-block:92px;}
 @media (max-width:720px){ .section{padding-block:58px;} }
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Lexend',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Gotham Rounded'; font-weight:600;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
 .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;}
 h2.title{font-size:clamp(1.65rem,3vw,2.4rem);}
 .lede{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--ink-soft);max-width:66ch;font-weight:400;}
@@ -106,7 +114,7 @@ h2.title{font-size:clamp(1.65rem,3vw,2.4rem);}
 .btn-burgundy:hover{filter:brightness(1.08);}
 .btn-sm{padding:10px 20px;font-size:0.84rem;}
 .cta-row{display:flex;gap:13px;flex-wrap:wrap;}
-.tlink{display:inline-flex;align-items:center;gap:6px;font-family:'Lexend',sans-serif;font-weight:600;font-size:0.86rem;color:var(--accent);}
+.tlink{display:inline-flex;align-items:center;gap:6px;font-family:'Gotham Rounded'; font-weight:600;font-size:0.86rem;color:var(--accent);}
 .tlink:hover{gap:9px;}
 .icon-badge{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--accent-tint);color:var(--accent);}
 .icon-badge svg{width:22px;height:22px;}
@@ -206,24 +214,26 @@ nav.mainnav{display:flex;align-items:center;justify-content:space-between;paddin
 #sol1:checked~.sol-grid .sol-nav label:nth-of-type(1) .ix,#sol2:checked~.sol-grid .sol-nav label:nth-of-type(2) .ix,#sol3:checked~.sol-grid .sol-nav label:nth-of-type(3) .ix,#sol4:checked~.sol-grid .sol-nav label:nth-of-type(4) .ix,#sol5:checked~.sol-grid .sol-nav label:nth-of-type(5) .ix,#sol6:checked~.sol-grid .sol-nav label:nth-of-type(6) .ix,#sol7:checked~.sol-grid .sol-nav label:nth-of-type(7) .ix,#sol8:checked~.sol-grid .sol-nav label:nth-of-type(8) .ix{color:rgba(255,255,255,0.7);}
 #sol1:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(1),#sol2:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(2),#sol3:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(3),#sol4:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(4),#sol5:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(5),#sol6:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(6),#sol7:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(7),#sol8:checked~.sol-grid .sol-stage .sol-panel:nth-of-type(8){display:block;}
 
-/* ECOSYSTEM — dynamic */
-.eco-wrap{display:flex;justify-content:center;}
-.eco{width:100%;max-width:640px;}
-.eco-ring-rot{transform-box:fill-box;transform-origin:center;animation:ecospin 70s linear infinite;}
-@keyframes ecospin{to{transform:rotate(360deg);}}
-.eco-glow{transform-box:fill-box;transform-origin:center;animation:ecoglow 3.4s ease-in-out infinite;}
-@keyframes ecoglow{0%,100%{opacity:0.28;transform:scale(1);}50%{opacity:0.12;transform:scale(1.18);}}
-.eco-spoke{stroke-dasharray:4 8;animation:ecoflow 1.8s linear infinite;}
-@keyframes ecoflow{to{stroke-dashoffset:-24;}}
-.eco-node{transform-box:fill-box;transform-origin:center;transition:transform .2s ease;}
-.eco-node circle{transition:fill .2s ease;}
-.eco-node:hover{transform:scale(1.09);}
-.eco-node:hover circle{fill:var(--accent);}
-.eco-node:hover text{fill:#fff;}
-.eco-cap{transform-box:fill-box;transform-origin:center;animation:ecocap 4s ease-in-out infinite;}
-@keyframes ecocap{0%,100%{opacity:0.65;}50%{opacity:1;}}
-@media (prefers-reduced-motion:reduce){ .eco-ring-rot,.eco-glow,.eco-spoke,.eco-cap{animation:none;} }
-
+/* FINANCIAL SPECIALISATION — clean */
+.fin-grid{display:grid;grid-template-columns:0.92fr 1.55fr;gap:24px;align-items:stretch;}
+@media (max-width:900px){ .fin-grid{grid-template-columns:1fr;} }
+.fin-core{background:linear-gradient(160deg,var(--navy) 0%,#122a42 100%);color:#fff;border-radius:var(--radius-card);padding:34px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.fin-core::after{content:"";position:absolute;top:-18%;right:-16%;width:320px;height:320px;background:radial-gradient(circle,var(--accent) 0%,transparent 70%);opacity:0.30;pointer-events:none;}
+.fin-core .lab{position:relative;z-index:1;font-family:'Lexend',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.09em;text-transform:uppercase;color:#C9B8F7;margin-bottom:10px;}
+.fin-core h3{position:relative;z-index:1;color:#fff;font-size:1.5rem;}
+.fin-core .desc{position:relative;z-index:1;color:rgba(255,255,255,0.78);font-size:0.95rem;margin-top:10px;max-width:34ch;}
+.fin-core .capttl{position:relative;z-index:1;margin-top:28px;padding-top:22px;border-top:1px solid var(--navy-line);font-family:'Lexend',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.62);margin-bottom:16px;}
+.fin-caps{position:relative;z-index:1;list-style:none;padding:0;margin:auto 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;}
+.fin-caps li{display:flex;align-items:center;gap:9px;font-size:0.92rem;color:#fff;font-family:'Lexend',sans-serif;font-weight:500;}
+.fin-caps li svg{width:16px;height:16px;color:var(--accent-2);flex:none;}
+.fin-sectors{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media (max-width:560px){ .fin-sectors{grid-template-columns:1fr;} }
+.fsec{border:1px solid var(--line);border-radius:16px;background:var(--bg-raised);padding:22px;display:flex;gap:14px;align-items:flex-start;transition:border-color .15s,transform .15s,box-shadow .15s;}
+.fsec:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow);}
+.fsec .fi{width:44px;height:44px;border-radius:12px;background:var(--accent-tint);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none;}
+.fsec .fi svg{width:22px;height:22px;}
+.fsec h4{font-size:1.02rem;margin-bottom:4px;font-family:'Lexend',sans-serif;font-weight:600;}
+.fsec p{font-size:0.85rem;color:var(--ink-soft);}
 /* PROCESS vertical */
 .proc-v{background:var(--ivory);border-radius:var(--radius-card);padding:44px 40px;}
 @media (max-width:720px){ .proc-v{padding:30px 22px;} }
@@ -568,55 +578,34 @@ footer{background:var(--navy);color:rgba(247,249,252,0.7);border-top:1px solid v
 <!-- FINANCIAL ECOSYSTEM -->
 <section class="section">
   <div class="wrap">
-    <div class="section-head" style="margin-inline:auto;text-align:center;">
-      <p class="eyebrow" style="justify-content:center;">Finance-Led Specialisation</p>
+    <div class="section-head">
+      <p class="eyebrow">Finance-Led Specialisation</p>
       <h2 class="title">AI Built Around Bahrain's Financial Ecosystem</h2>
-      <p class="lede" style="margin:14px auto 0;">Our finance-led approach connects banking knowledge, AI engineering, enterprise integration and responsible deployment.</p>
+      <p class="lede" style="margin-top:14px;">Our finance-led approach connects banking knowledge, AI engineering, enterprise integration and responsible deployment — one delivery core serving every part of the sector.</p>
     </div>
-    <div class="eco-wrap">
-      <svg class="eco" viewBox="0 0 620 620" role="img" aria-label="Codezal AI delivery at the centre of Bahrain's financial ecosystem, surrounded by six sectors and shared capabilities">
-        <style>
-          .eco text{font-family:'Lexend',sans-serif;}
-          .eco .sector text{fill:var(--ink);font-weight:600;font-size:12.5px;}
-          .eco .eco-node circle{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1.5;}
-          .eco .core-t{fill:#fff;font-weight:700;font-size:16px;}
-          .eco .eco-spoke{stroke:var(--accent);}
-          .eco .ringA{stroke:var(--accent);}
-          .eco .cap{fill:var(--accent-deep);font-weight:600;font-size:11.5px;}
-        </style>
-        <defs><radialGradient id="core" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#A78BF5"/><stop offset="1" stop-color="#5E3FC0"/></radialGradient></defs>
-        <circle class="eco-ring-rot ringA" cx="310" cy="310" r="250" fill="none" stroke-width="1.4" stroke-dasharray="2 12" opacity="0.55"/>
-        <circle cx="310" cy="310" r="250" fill="none" stroke="var(--line-strong)" stroke-width="1"/>
-        <circle class="eco-ring-rot ringA" style="animation-duration:95s;animation-direction:reverse;" cx="310" cy="310" r="168" fill="none" stroke-width="1.1" stroke-dasharray="1 10" opacity="0.4"/>
-        <g stroke-width="1.6" opacity="0.5" fill="none">
-          <line class="eco-spoke" x1="310" y1="310" x2="310" y2="150"/>
-          <line class="eco-spoke" x1="310" y1="310" x2="449" y2="230"/>
-          <line class="eco-spoke" x1="310" y1="310" x2="449" y2="390"/>
-          <line class="eco-spoke" x1="310" y1="310" x2="310" y2="470"/>
-          <line class="eco-spoke" x1="310" y1="310" x2="171" y2="390"/>
-          <line class="eco-spoke" x1="310" y1="310" x2="171" y2="230"/>
-        </g>
-        <circle class="eco-glow" cx="310" cy="310" r="84" fill="var(--accent)"/>
-        <circle cx="310" cy="310" r="66" fill="url(#core)"/>
-        <text class="core-t" x="310" y="304" text-anchor="middle">Codezal</text>
-        <text class="core-t" x="310" y="324" text-anchor="middle">AI Delivery</text>
-        <g class="sector">
-          <g class="eco-node"><circle cx="310" cy="150" r="52"/><text x="310" y="146" text-anchor="middle">Conventional</text><text x="310" y="162" text-anchor="middle">banking</text></g>
-          <g class="eco-node"><circle cx="449" cy="230" r="52"/><text x="449" y="226" text-anchor="middle">Islamic</text><text x="449" y="242" text-anchor="middle">banking</text></g>
-          <g class="eco-node"><circle cx="449" cy="390" r="52"/><text x="449" y="386" text-anchor="middle">Fintech &amp;</text><text x="449" y="402" text-anchor="middle">payments</text></g>
-          <g class="eco-node"><circle cx="310" cy="470" r="52"/><text x="310" y="466" text-anchor="middle">Investment</text><text x="310" y="482" text-anchor="middle">management</text></g>
-          <g class="eco-node"><circle cx="171" cy="390" r="52"/><text x="171" y="386" text-anchor="middle">Insurance</text><text x="171" y="402" text-anchor="middle">&amp; takaful</text></g>
-          <g class="eco-node"><circle cx="171" cy="230" r="52"/><text x="171" y="226" text-anchor="middle">Finance</text><text x="171" y="242" text-anchor="middle">companies</text></g>
-        </g>
-        <g>
-          <text class="cap eco-cap" style="animation-delay:0s" x="310" y="50" text-anchor="middle">Risk</text>
-          <text class="cap eco-cap" style="animation-delay:.6s" x="548" y="152" text-anchor="middle">Compliance</text>
-          <text class="cap eco-cap" style="animation-delay:1.2s" x="560" y="474" text-anchor="middle">Operations</text>
-          <text class="cap eco-cap" style="animation-delay:1.8s" x="310" y="592" text-anchor="middle">Customer Experience</text>
-          <text class="cap eco-cap" style="animation-delay:2.4s" x="60" y="474" text-anchor="middle">Data</text>
-          <text class="cap eco-cap" style="animation-delay:3s" x="66" y="152" text-anchor="middle">Governance</text>
-        </g>
-      </svg>
+    <div class="fin-grid">
+      <div class="fin-core">
+        <span class="lab">At the centre</span>
+        <h3>Codezal AI Delivery</h3>
+        <p class="desc">A single, accountable delivery core connected to every part of the financial sector.</p>
+        <p class="capttl">Shared across every engagement</p>
+        <ul class="fin-caps">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2"/></svg>Risk</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2"/></svg>Compliance</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2"/></svg>Operations</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2"/></svg>Customer Experience</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2"/></svg>Data</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2"/></svg>Governance</li>
+        </ul>
+      </div>
+      <div class="fin-sectors">
+        <div class="fsec"><div class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-6 9 6M5 9v11h14V9M9 20v-6h6v6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div><div><h4>Conventional banking</h4><p>Retail and corporate banks modernising risk, service and daily operations.</p></div></div>
+        <div class="fsec"><div class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L3.8 8.7l5.4-.8L12 3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div><div><h4>Islamic banking</h4><p>Sharia-aligned institutions applying AI within their governance frameworks.</p></div></div>
+        <div class="fsec"><div class="fi"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div><h4>Fintech &amp; payments</h4><p>Digital-first players scaling securely across Bahrain's payment rails.</p></div></div>
+        <div class="fsec"><div class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 4-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h4>Investment management</h4><p>Asset and wealth managers turning data into sharper, faster decisions.</p></div></div>
+        <div class="fsec"><div class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6"/><path d="M9 11.5l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h4>Insurance &amp; takaful</h4><p>Insurers and takaful operators automating claims and underwriting support.</p></div></div>
+        <div class="fsec"><div class="fi"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-5 8 5v12M4 20h16M9 20v-6h6v6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div><div><h4>Finance companies</h4><p>Lenders and leasing firms streamlining origination, risk and collections.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
